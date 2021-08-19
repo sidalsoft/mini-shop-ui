@@ -1,0 +1,29 @@
+<div class="bg-light p-5 rounded">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Описание</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Количества</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let product of products; let ind=index">
+            <th scope="row">{{ind + 1}}</th>
+            <td>{{product.name}}</td>
+            <td>{{product.desc}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.quantity}}</td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <button type="button" class="btn btn-warning" (click)="onEditClick(product.id )">Изменит</button>
+                    <button type="button" class="btn btn-danger" (click)="onDeleteClick(product.id )">Удалит</button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

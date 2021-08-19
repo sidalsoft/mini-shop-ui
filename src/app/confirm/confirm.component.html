@@ -1,0 +1,18 @@
+<div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Удалит продукт</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="onNoClick()"
+                aria-label="Закрит"></button>
+      </div>
+      <div class="modal-body">
+        <p>Вы действително хотите удалит продука по название: {{productName}}.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="onNoClick()">Нет</button>
+        <button type="button" class="btn btn-primary" (click)="onYsClick()">Да</button>
+      </div>
+    </div>
+  </div>
+</div>

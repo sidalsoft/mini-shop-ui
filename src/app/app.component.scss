@@ -1,0 +1,36 @@
+.toast{
+  display: block;
+}
+.modal{
+  display: block;
+}
+
+@keyframes spinner-border {
+  to { transform: rotate(360deg) #{"/* rtl:ignore */"}; }
+}
+@keyframes spinner-grow {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.spinner-border{
+  width: 6rem;
+  height: 6rem;
+}
+
+.spinner {
+  opacity: 0.5;
+  background: white;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  visibility: visible;
+  z-index: 9999;
+}

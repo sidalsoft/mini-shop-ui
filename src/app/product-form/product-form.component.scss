@@ -1,0 +1,17 @@
+.modal {
+  display: block;
+  opacity: 100;
+  top: 100px;
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+input.ng-touched.ng-invalid {
+  border: solid red 2px;
+}
+
+input.ng-touched.ng-valid {
+  border: solid green 2px;
+}

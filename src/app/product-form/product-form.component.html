@@ -1,0 +1,64 @@
+<div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{!!product?'Редактировать продукт':'Новый товар'}}</h5>
+        <button type="button" (click)="onCloseClick()"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="productForm" novalidate >
+          <div class="mb-3">
+            <label for="name" class="col-form-label">Имя товара:</label>
+            <input type="text" class="form-control"
+                   [class.is-invalid]="productForm.controls['name'].invalid && productForm.controls['name'].touched"
+                   [class.is-valid]="!productForm.controls['name'].invalid"
+                   id="name" formControlName="name">
+            <div *ngIf="productForm.controls['name'].invalid && productForm.controls['name'].touched"
+                 class="invalid-feedback">
+              Пожалуйста, выберите имя товара.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="desc" class="col-form-label">Описание:</label>
+            <textarea class="form-control"
+                      [class.is-invalid]="productForm.controls['desc'].invalid && productForm.controls['desc'].touched"
+                      [class.is-valid]="!productForm.controls['desc'].invalid"
+                      id="desc" formControlName="desc"></textarea>
+            <div class="alert alert-danger"
+                 *ngIf="productForm.controls['desc'].invalid && productForm.controls['desc'].touched">
+              Количество букв в описание не должно быт менше 25
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="price" class="col-form-label">Цена:</label>
+            <input type="number" class="form-control"
+                   [class.is-invalid]="productForm.controls['price'].invalid && productForm.controls['price'].touched"
+                   [class.is-valid]="!productForm.controls['price'].invalid"
+                   id="price" formControlName="price">
+            <div *ngIf="productForm.controls['price'].invalid && productForm.controls['price'].touched"
+                 class="invalid-feedback">
+              Только номер.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="quantity" class="col-form-label">Количества:</label>
+            <input type="number" class="form-control"
+                   [class.is-invalid]="productForm.controls['quantity'].invalid && productForm.controls['quantity'].touched"
+                   [class.is-valid]="!productForm.controls['quantity'].invalid"
+                   id="quantity" formControlName="quantity">
+            <div *ngIf="productForm.controls['quantity'].invalid && productForm.controls['quantity'].touched"
+                 class="invalid-feedback">
+              Только номер.
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="onCloseClick()" class="btn btn-secondary" data-bs-dismiss="modal">Закрыт</button>
+        <button type="submit" class="btn btn-primary"
+                (click)="onSaveClick()"
+                [disabled]="productForm?.invalid">Сохранит</button>
+      </div>
+    </div>
+  </div>
+</div>
